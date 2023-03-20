@@ -1,0 +1,24 @@
+<div class="loginForm">
+<div [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">User Name</label>
+      <input formControlName="UserName" type="text" [class.is-valid]="!loginForm.controls['UserName'].errors" [class.is-invalid]="loginForm.controls['UserName'].errors" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter valid User Name">
+      <div class="text-danger" *ngIf="loginForm.controls['UserName'].errors">
+           
+        <small id="emailHelp" *ngIf="loginForm.controls['UserName'].hasError('required')" class="form-text text-danger">Required Field</small>
+        <small id="emailHelp"  *ngIf="loginForm.controls['UserName'].hasError('email')" class="form-text text-danger">Invalid User name</small>
+        <small id="emailHelp"  *ngIf="loginForm.controls['UserName'].hasError('minlength')" class="form-text text-danger">Min length</small>
+        <small id="emailHelp"  *ngIf="loginForm.controls['UserName'].hasError('maxlength')" class="form-text text-danger">Max length</small>
+      
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input formControlName="Password" type="password" [class.is-valid]="!loginForm.controls['Password'].errors" [class.is-invalid]="loginForm.controls['Password'].errors" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    
+    <button type="button" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+    <p>dont have account yet?! <a class="text-body mr-3" href="/signup">SignUp</a></p>
+    
+</div>
+</div>

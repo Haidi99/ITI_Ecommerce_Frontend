@@ -1,0 +1,44 @@
+<div class="signupform">
+    <div [formGroup]="registerForm">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input formControlName="Email" type="text" [class.is-valid]="!registerForm.controls['Email'].errors" [class.is-invalid]="registerForm.controls['Email'].errors" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter valid Email">
+            <div class="text-danger" *ngIf="registerForm.controls['Email'].errors">
+                 
+              <small id="emailHelp" *ngIf="registerForm.controls['UserName'].hasError('required')" class="form-text text-danger">Required Field</small>
+              <small id="emailHelp"  *ngIf="registerForm.controls['UserName'].hasError('email')" class="form-text text-danger">Invalid Email</small>
+              <small id="emailHelp"  *ngIf="registerForm.controls['UserName'].hasError('minlength')" class="form-text text-danger">Min length</small>
+              <small id="emailHelp"  *ngIf="registerForm.controls['UserName'].hasError('maxlength')" class="form-text text-danger">Max length</small>
+            
+          </div>
+          </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">User Name</label>
+          <input formControlName="UserName" type="text" [class.is-valid]="!registerForm.controls['UserName'].errors" [class.is-invalid]="registerForm.controls['UserName'].errors" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter valid User Name">
+          <div class="text-danger" *ngIf="registerForm.controls['UserName'].errors">
+               
+            <small id="emailHelp" *ngIf="registerForm.controls['UserName'].hasError('required')" class="form-text text-danger">Required Field</small>
+            <small id="emailHelp"  *ngIf="registerForm.controls['UserName'].hasError('email')" class="form-text text-danger">Invalid User name</small>
+            <small id="emailHelp"  *ngIf="registerForm.controls['UserName'].hasError('minlength')" class="form-text text-danger">Min length</small>
+            <small id="emailHelp"  *ngIf="registerForm.controls['UserName'].hasError('maxlength')" class="form-text text-danger">Max length</small>
+          
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input formControlName="Password" type="password" [class.is-valid]="!registerForm.controls['Password'].errors" [class.is-invalid]="registerForm.controls['Password'].errors" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <div class="text-danger" *ngIf="registerForm.controls['Password'].errors">
+               
+            <small id="emailHelp" *ngIf="registerForm.controls['Password'].hasError('required')" class="form-text text-danger">Required Field</small>
+            <small id="emailHelp"  *ngIf="registerForm.controls['Password'].hasError('email')" class="form-text text-danger">Invalid Password</small>
+            <small id="emailHelp"  *ngIf="registerForm.controls['Password'].hasError('minlength')" class="form-text text-danger">Min length</small>
+            <small id="emailHelp"  *ngIf="registerForm.controls['Password'].hasError('maxlength')" class="form-text text-danger">Max length</small>
+          
+        </div>
+        </div>
+        
+        <button type="button" [disabled]="registerForm.invalid" class="btn btn-primary">Sign Up</button>
+        
+    </div>
+    </div>
+    
